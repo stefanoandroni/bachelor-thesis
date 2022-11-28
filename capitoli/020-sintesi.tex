@@ -1,0 +1,78 @@
+\chapter{Panoramica del Framework sviluppato}
+\lhead{Panoramica del Framework sviluppato}
+%\rhead{Sintesi del lavoro svolto}
+In questo capitolo verrà presentato complessivamente il lavoro svolto durante lo stage, che può essere complessivamente sintetizzato in:
+\begin{itemize} [nosep]
+\item Risoluzione delle limitazioni e criticità
+\item Implementazione di nuove funzionalità
+\item Miglioramento complessivo del sistema
+\end{itemize}
+
+\section{Risoluzione delle limitazioni e criticità}
+\rhead{Risoluzione delle limitazioni e criticità}
+Nella progettazione del tool sono state risolte le limitazioni e criticità identificate nel Capitolo \ref{background}. Per ognuna di queste, segue una breve esposizione della soluzione adottata:
+
+\begin{itemize}
+\item[\textbf{L1} ] 
+\ul{Limitazione} Utilizzo di librerie ormai obsolete, tra le quali JUnitParams, utilizzata per la parametrizzazione dei test e non aggiornata da più di 3 anni.
+\newline \ul{Soluzione} La nuova soluzione prevede la parametrizzazione delle classi di test senza l'utilizzo di librerie esterne: i parametri vengono ottenuti come argomenti del bundle della strumentazione di test (Appendice A - Generazione degli APK - 2.Parametrizzazione della classe di test). 
+
+\item[\textbf{L2} ] 
+\ul{Limitazione} Processo di lancio dei test parametrici macchinoso (implica il push di un file sull'emulatore contenete i parametri del test prima di ogni lancio).
+\newline \ul{Soluzione} La nuova soluzione prevede il passaggio dei parametri alla strumentazione di test, specificandoli come argomento custom del comando adb (Appendice A - adb) che lancia la classe di test: in questo modo può essere evitato il meccanismo di push dei file sul device. (Sezione \ref{pasparam} - Passaggio dei parametri alla classe di test) 
+
+
+\item[\textbf{L3} ] 
+\ul{Limitazione} Previsto l'inserimento di informazioni ridondanti nel file di configurazione (tra le quali, per esempio, dirClassTest e dirRunWith). 
+\newline \ul{Soluzione} La nuova soluzione prevede l'utilizzo di strumenti appositi in grado di ottenere le informazioni richieste direttamente dal file APK.  (Appendice A - 	AAPT2) 
+
+\item[\textbf{L4} ] 
+\ul{Limitazione}  In caso di fallimento del test non è in grado di catturarne automaticamente la causa  (tipo di eccezione o crash), ma salva semplicemente il log .
+\newline \ul{Soluzione} La nuova soluzione è in grado di identificare automaticamente il tipo di fallimento del test, crash o eccezione, e, in quest'ultimo caso, è in grado di catturarne la tipologia.  (Sezione \ref{sub:AutomatizzaTest} - Automatizzazione dei test) 
+\end{itemize}
+
+\section{Implementazione di nuove funzionalità}
+\rhead{Implementazione di nuove funzionalità}
+\textbf{Verifica della riproduzione del bug} \newline
+La progettazione del tool è stata orientata all'aggiunta di una nuova funzionalità che permettesse la verifica della riproduzione del bug atteso. L'obiettivo funzionale è stato raggiunto attraverso diversi step :
+\begin{itemize} [nosep]
+\item Impostazione di una logica che definisce se il bug è stato riprodotto in base a:
+\begin{itemize} [nosep]
+\item risultato del test
+\item bug atteso
+\end{itemize}
+\item Reimpostazione del file di configurazione con l'aggiunta di nuove informazioni relative al bug atteso
+\item Realizzazione di un componente in grado di gestire il processo di verifica
+\end{itemize}
+\bigskip
+\noindent\textbf{Gestione degli emulatori} \newline
+\noindent Lo strumento realizzato permette di poter associare ad ogni bug uno specifico emulatore su cui lanciare i test. L'implementazione di questa funzionalità è stata di fondamentale importanza in quanto:
+\begin{itemize}[nosep]
+\item Alcune applicazioni potrebbero funzionare solo con determinate versioni dell'Sdk
+\item Il verificarsi di alcuni bug potrebbe dipendere dalla versione dell'Sdk
+\end{itemize}
+\bigskip
+\noindent\textbf{Funzionalità secondarie} \newline
+\noindent Sono state implementate inoltre alcune funzionalità secondarie, tra le quali:
+\begin{itemize} [nosep]
+\item Possibilità ottenere uno screen record per ogni esecuzione di un caso di test
+\item Possibilità di ottenere uno screenshot per ogni esecuzione di un caso di test
+\end{itemize}
+\newpage
+\section{Miglioramento complessivo del sistema}
+\rhead{Miglioramento complessivo del sistema}
+\textbf{Command Line Tool} \newline
+Il tool è stato progettato per essere lanciato da linea di comando, con la possibilità di utilizzare diverse funzioni con argomenti differenti grazie all'implementazione di un parser ad hoc. Inoltre è stato previsto un helper in grado di aiutare l'utente nell'utilizzo dello strumento.
+\\\\
+\noindent\textbf{Nuova struttura del package di lancio} \newline
+La soluzione adottata implica l'utilizzo di una struttura fissa del package di lancio, che permette di:
+\begin{itemize} [nosep]
+\item Mantenere in memoria, in modo organizzato, i file di esecuzione in modo da poterli rieseguire facilmente in qualsiasi momento
+\item Mantenere in memoria, in modo organizzato, i file di output di ogni esecuzione del tool
+\item Evitare di dover specificare ad ogni esecuzione il percorso in cui sono posizionati i vari file di input
+\end{itemize}
+\bigskip
+\noindent\textbf{Gestione dell'intero processo} \newline
+La soluzione adottata permette la gestione dell'intero processo di offuscamento dei dati, automazione dei test e verifica della riproduzione del bug atteso. Le funzionalità dello strumento, una volta configurato correttamente, possono essere utilizzate in maniera fluida e rapida senza dover preoccuparsi ad ogni esecuzione della configurazione dell'ambiente in cui viene lanciato. Infatti gestisce automaticamente anche il processo di avvio e chiusura dell'emulatore, effettuando tutti i controlli del caso.
+
+

@@ -1,0 +1,113 @@
+\chapter*{Introduzione}
+\addcontentsline{toc}{chapter}{Introduzione} %aggiunge 'Introduziione' al ToC
+
+\rhead{}
+\lhead{Introduzione}
+
+\textcolor{gray}{Lo stage è stato svolto presso il Dipartimento di Informatica, Sistemistica e Comunicazione (DISCO) dell'Università degli Studi di Milano-Bicocca nel periodo compreso tra il 30/06/2021 e il 28/09/2021 in modalità smart working (causa emergenza Covid-19).}
+
+\section*{Introduzione allo stage}
+\addcontentsline{toc}{section}{Introduzione allo stage}
+
+\subsection*{\setstretch{1}\textcolor{lightgray}{\normalsize{Contesto}} \\ Protezione dei dati e della privacy online}
+%\addcontentsline{toc}{subsection}{\textcolor{gray}{Contesto -} Protezione dei dati e della privacy online}
+Nel processo di trasformazione digitale, fortemente accelerato dalla pandemia da Covid-19, il tema del trattamento dei dati personali ha assunto una rilevanza sempre maggiore finendo al centro di molti dibattiti.
+
+L'Unione Europea, in tale ambito, ha emanato nel 2016 il GDPR\footnote{\textbf{General Data Protection Regulation}: il regolamento di riferimento dell'Unione europea in materia di trattamento dei dati personali e di privacy} con l'obiettivo di uniformare le leggi europee sul trattamento dati e garantire ai cittadini il diritto a essere in pieno controllo delle informazioni che li riguardano[1]. Il regolamento considera il formato dei dati irrilevante ed obbliga le aziende (e le organizzazioni) a chiedere il consenso al soggetto prima di potere raccogliere i suoi dati personali[2]. Le conseguenze pecuniarie per chi viola la norma possono arrivare fino 20 milioni di euro o, per le imprese, fino al 4 \% del fatturato mondiale totale annuo[3].
+
+Il resto del mondo sta adottando legislazioni che vanno nella stessa direzione obbligando le aziende a dover rivoluzionare il modo con cui gestiscono i dati sensibili e rendendo le persone più consapevoli sull'argomento.
+
+%Il regolamento è da considerarsi il provvedimento più significativo degli ultimi 20 anni in materia e ha implicazioni importanti per qualsiasi organizzazione al mondo che si rivolga ai cittadini dell'Unione Europea.
+
+\subsection*{\setstretch{1}\textcolor{lightgray}{\normalsize{Problema}} \\ Bug report e privacy}
+%\addcontentsline{toc}{subsection}{\textcolor{gray}{Problema -} Bug report e privacy}
+
+%Problema1: disponibilità di risorse per il testing
+Le risorse temporali ed economiche destinate alla fase di testing di un applicativo prima del suo rilascio, in molti casi, non sono adeguate all'esecuzione di un collaudo che possa considerarsi esaustivo, con effetti limitanti nell'identificazione dei difetti del software.
+
+%Problema2: varietà environments su cui il software verrà installato
+Generalmente, disporre delle risorse necessarie all'esecuzione di un testing completo non potrebbe comunque garantire il rilascio di applicativi privi di bug, con  particolare riferimento ai difetti che dipendono dall'ambiente di esecuzione. Il limite, in quest'ultimo caso, è dovuto alla difficoltà/impossibilità di prevedere a priori (e quindi simulare) tutti gli ambienti in cui il software sarà eseguito dagli utenti finali, in particolar modo quando l'applicativo è destinato a diversi sistemi. 
+
+Queste tipo di problematiche portano spesso al rilascio di software non perfetti, che presentano ancora molti difetti. Come conseguenza, molti dei bug vengono identificati e risolti quando il software è già stato rilasciato. 
+
+Il contributo degli utenti finali con la compilazione e l'invio di bug report velocizza ed economizza l'identificazione e la risoluzione dei difetti. Infatti la reportizzazione permette allo sviluppatore di riprodurre il bug in-house ricreando l'ambiente in cui il difetto si è verificato e riproducendo le operazioni eseguite dall'utente. %, inclusi gli eventuali dati inseriti.
+
+ Tuttavia \textbf{le informazioni di esecuzione contenute nel report potrebbero includere dei dati sensibili}, che l'utente potrebbe non voler divulgare a terzi e decidere quindi di non inviare o inviare in maniera incompleta/inconsistente. Questa situazione è molto limitante per il processo di individuazione dei bug con conseguenze negative sia per gli sviluppatori, che si vedrebbero obbligati ad investire molte più risorse, che per gli utenti, che potenzialmente si ritroverebbero ad utilizzare applicativi più difettati.
+
+%Conseguentemente al trascurare uno degli step essenziali del processo di sviluppo di un software comporta il rilascio di software più o meno difettati.
+%Nonostante questa rappresenti uno degli step essenziali nel processo di sviluppo di un software
+%La fase di testing prima del rilascio di un applicativo viene spesso trascurata per questioni di disponibilità di tempo e/o risorse economiche, nonostante rappresenti uno degli step essenziali nel processo di sviluppo di un software.
+
+ 
+
+\subsection*{\setstretch{1}\textcolor{lightgray}{\normalsize{Possibile soluzione}} \\ Offuscamento dei dati}
+%\addcontentsline{toc}{subsection}{\textcolor{gray}{Possibile soluzione -} Offuscamento dei dati}
+Per i motivi normativi sopra citati, l'interesse in tale ambito è ampio e molti degli studi identificano nell'offuscamento dei dati una possibile soluzione. 
+
+L'offuscamento dei dati è una delle metodologie di data masking che, attraverso l'applicazione di diverse tecniche, persegue l'obiettivo di mascheramento dei dati con la qualità di preservarne la consistenza e la coerenza[4]. 
+
+Nella risoluzione del problema considerato, l'applicazione delle tecniche di offuscamento sui dati sensibili potrebbe apportare un duplice contributo: 
+\begin{enumerate} [nosep]
+  \item[$\blacksquare$] gli utenti dovrebbero essere più disponibili all'invio di report che non contengono i loro dati sensibili (sono stati offuscati).
+   \item[$\blacksquare$]  lo sviluppatore riceverebbe più dati completi ed utilizzabili, anche se in parte offuscati.
+\end{enumerate}In sostanza, l'offuscamento dei dati non fa cadere l'obbligo di richiesta del consenso per il trattamento dei dati imposto dal GDPR, ma cerca di convincere gli utenti a compilare ed inviare dei bug report completi garantendo che i loro dati sensibili non vengano divulgati.
+
+I dati offuscati possono sembrare una soluzione definitiva al problema, ma hanno in realtà un limite: non possono garantire con sicurezza che l'applicativo si comporti nello stesso modo in cui si sarebbe comportato ricevendo in input i dati originali e quindi che sia indifferente fornire allo sviluppatore i dati non offuscati o i dati offuscati in ambito di riproducibilità dei bug. 
+
+
+\clearpage
+\section*{Obiettivo dello stage}
+\addcontentsline{toc}{section}{Obiettivo dello stage}
+%da sistemare (progetto???)
+Lo stage si inserisce in un progetto più ampio, a cui hanno contribuito negli anni passati altri colleghi, con obiettivo complessivo la valutazione dell'efficienza delle tecniche di offuscamento in ambito di riproducibilità di bug. Con ''efficienza'' si intende la capacità delle varie tecniche di generare dati offuscati che riproducano il bug originale, cioè il difetto sollevato dall'inserimento dei dati non offuscati.  La scelta degli applicativi su cui effettuare lo studio è ricaduta sulle applicazioni destinate al sistema operativo per dispositivi mobile Android, in quanto ampiamente diffuse e statisticamente più soggette alla presenza di bug[16]. I bug interessanti per lo studio sono evidentemente quelli che implicano l'inserimento di dati da parte dell'utente.
+
+L'obiettivo dello stage, in termini generali, può essere identificato nella \textbf{realizzazione di un framework per l'esecuzione automatica di test con input offuscati} e della conseguente implementazione di un \textbf{tool eseguibile da linea di comando} che permetta di sfruttarne le capacità. Il perseguimento dell'obiettivo include la prosecuzione degli studi e del lavoro svolto in precedenza da altri colleghi e del conseguente refactoring delle soluzioni già adottate. Prima di ogni altra cosa quindi, è essenziale comprendere le scelte progettuali/implementative effettuate in precedenza ed individuare limitazioni e criticità la cui risoluzione rappresenterà uno dei fini fondamentali dello stage. In termini generali, lo stage implica il raggiungimento di \textbf{sotto-obiettivi} che possono essere identificati nelle seguenti macrocategorie: 
+\begin{enumerate}[nosep]
+   \item[\emph{Ob.1}] \textbf{Offuscamento dei dati}
+    	\begin{description}[nosep]
+    		 \item \noindent Realizzazione di un componente in grado di applicare le tecniche di offuscamento e restituire le tuple offuscate.
+    		 \item \noindent \emph{Nota - Tool già realizzato da un collega e in gran parte riutilizzato nel progetto}
+    	\end{description}
+    	\item[\emph{Ob.2}] \textbf{Creazione del caso di test}
+    	\begin{description}[nosep]
+    		 \item \noindent Ricerca della migliore soluzione per la registrazione e parametrizzazione del caso di test che genera il bug.
+    		  \item \noindent \emph{Nota - Soluzione già trovata da un collega, ma non riutilizzata nel progetto per motivi che saranno esposti nei capitolo successivi}
+    	\end{description}
+   \item[\emph{Ob.3}]  \textbf{Automazione dell'esecuzione di test parametrici in ambiente Android}
+   		 \begin{description}[nosep]
+     		\item \noindent Realizzazione di un componente in grado di eseguire automaticamente instrumented tests parametrici e capace di catturarne il risultato. 
+     		(nel progetto utile a lanciare automaticamente un test per ogni tupla offuscata)   
+     		 \item \noindent \emph{Nota - Tool già realizzato da un collega, ma non riutlizzato nel progetto per motivi che saranno esposti nei capitolo successivi}
+   		 \end{description}
+   \item[\emph{Ob.4}]  \textbf{Verifica della riproduzione dei bug}
+       \begin{description}[nosep]
+     		\item \noindent Realizzazione di uno strumento in grado di comprendere se il test ha prodotto il bug atteso.
+    	\end{description}
+   \item[\emph{Ob.5}] \textbf{Validazione del tool}
+       \begin{description}[nosep]
+     		\item \noindent Breve validazione del tool utilizzando alcune delle applicazioni difettate individuate negli studi precedenti.
+    	\end{description}
+\end{enumerate}
+
+Un obiettivo secondario è identificato nella produzione di una buona documentazione e reportizzazione dei progressi, oltre che alla segnalazione di possibili problematiche e punti aperti, in modo da permettere un più fluido avanzamento del progetto in caso di futuro proseguimento degli studi.
+
+
+\clearpage
+\section*{Struttura della relazione}
+\addcontentsline{toc}{section}{Struttura della relazione}
+
+
+La relazione si struttura nei seguenti capitoli:
+\bigbreak
+ \noindent\textbf{Capitolo 1 - Background} \newline Nel Capitolo 1 verranno esposti ed analizzati gli ultimi studi, effettuati all'interno del gruppo di ricerca in cui ho lavorato, in ambito di offuscamento dei dati e automazione dei test.
+\bigbreak
+ \noindent\textbf{Capitolo 2 - Panoramica del Framework sviluppato}\newline Nel Capitolo 2 verrà presentato complessivamente il lavoro svolto durante lo stage.
+\bigbreak
+ \noindent\textbf{Capitolo 3 - Architettura del Framework sviluppato}\newline Nel Capitolo 3 verrà analizzato il framework sviluppato, esponendo ed esplorando le funzionalità offerte dal tool eseguibile da linea di comando che ne sfrutta le capacità.
+\bigbreak  
+ \noindent\textbf{Capitolo 4 - Dettagli implementativi del Framework sviluppato}\newline Nel Capitolo 4 verranno analizzati i dettagli implementativi del framework ritenuti più interessanti.
+\bigbreak   
+ \noindent\textbf{Capitolo 5 - Validazione del Framework}\newline Nel Capitolo 5 verrà discusso il breve processo di validazione del Framework.
+\bigbreak   
+\noindent\textbf{Capitolo 6 - Conclusione e sviluppi futuri}\newline Nel Capitolo 6 verranno ricapitolati i risultati ottenuti e verranno identificati possibili sviluppi futuri.
+      

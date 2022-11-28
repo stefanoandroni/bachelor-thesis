@@ -1,0 +1,52 @@
+\newpage
+\section*{Strumenti utilizzati}
+\addcontentsline{toc}{section}{Strumenti utilizzati} 
+\rhead{Strumenti utilizzati}
+
+\label{cap:strumenti}
+\subsection*{Intellij IDEA}
+\addcontentsline{toc}{subsection}{Intellij IDEA} 
+IntelliJ IDEA è un ambiente di sviluppo integrato (IDE) per il linguaggio di programmazione Java sviluppato da JetBrains [6]. L'IDE è stato utilizzato per lo sviluppo del tool.
+
+\subsection*{Android Studio}
+\addcontentsline{toc}{subsection}{Android Studio} 
+Android Studio è l'ambiente di sviluppo integrato (IDE) ufficiale per il sistema operativo Android di Google, basato sul software IntelliJ IDEA di JetBrains e progettato specificamente per lo sviluppo Android[7]. Lo strumento è stato utilizzato principalmente per generare l'APK dell'applicazione e l'APK di test contenente la classe di test parametrica.  
+
+\subsection*{adb}
+\addcontentsline{toc}{subsection}{adb} 
+Android Debug Bridge (adb) è uno strumento versatile lanciabile da riga di comando che consente di comunicare con un dispositivo. Il comando adb facilita una serie di azioni del dispositivo, come l'installazione e il debug di app, e fornisce l'accesso a una shell Unix che può essere utilizzata per eseguire una varietà di comandi su un dispositivo. Il tool è incluso nell'sdk di Android Studio[8]. Lo strumento è stato utilizzato come gestore dei device, in particolare per il controllo del processo di lancio dei test sull'emulatore.
+
+\subsection*{Emulator}
+\addcontentsline{toc}{subsection}{Emulator} 
+Emulator è l'emulatore di dispositivi Android incluso nell'sdk di Android Studio[9]. Lo strumento è stato utilizzato per lanciare automaticamente l'emulatore nel processo di automazione dei test. Questo è stato possibile in quanto il tool include un interfaccia da linea di comando. 
+
+\subsection*{AAPT2}
+\addcontentsline{toc}{subsection}{AAPT2} 
+\label{cap:aapt2}
+AAPT2 (Android Asset Packaging Tool) è uno strumento di compilazione che Android Studio e Android Gradle Plugin utilizzano per compilare e impacchettare le risorse di un'applicazione[10]. Il tool è incluso nell'sdk di Android Studio. Lo strumento è stato utilizzato per ottenere alcune informazioni (necessarie al lancio dei test) direttamente dal file APK.
+
+
+\subsection*{AVD Manager}
+\addcontentsline{toc}{subsection}{AVD Manager} 
+AVD Manager è un'interfaccia che può essere avviata da Android Studio e permetta la creazione e la gestione degli AVD. Un Android Virtual Device (AVD) è una configurazione che definisce le caratteristiche di un telefono Android, tablet, sistema operativo Wear, Android TV o dispositivo con sistema operativo automobilistico che si desidera simulare nell'emulatore Android[11]. L'interfaccia è stata utilizzata per la creazione e la gestione degli AVD.
+
+\subsection*{apksigner}
+\addcontentsline{toc}{subsection}{apksigner} 
+Lo strumento apksigner, disponibile nella revisione 24.0.3 e successive di Android SDK Build Tools, consente di firmare gli APK e di confermare che la firma di un APK verrà verificata correttamente su tutte le versioni della piattaforma Android supportate da tali APK[12]. Lo strumento è stato utilizzato per firmare gli APK.
+
+\subsection*{Espresso}
+\addcontentsline{toc}{subsection}{Espresso} 
+È un framework per l’automazione dei test Android. È stato sviluppato da Google e reso disponibile agli sviluppatori e ai tester per effettuare test accurati sulle interfacce utenti delle loro applicazioni[13]. Lo strumento è stato utilizzato per la creazione dei casi di test che dovrebbero riprodurre il bug.
+
+\subsection*{Gradle}
+\addcontentsline{toc}{subsection}{Gradle} 
+Gradle è uno strumento di automazione della build per lo sviluppo di software multi linguaggio. Controlla il processo di sviluppo nelle attività di compilazione e confezionamento fino a test, distribuzione e pubblicazione[14]. Lo strumento è stato utilizzato per la generazione dei file APK.
+
+\subsection*{AndroidTestWithOutSource Project}
+\addcontentsline{toc}{subsection}{AndroidTestWithOutSource Project} 
+AndroidTestWithOutSource  è un progetto dal quale il collega A. Mendieta ha preso spunto per trovare una soluzione che permetta di effettuare test di applicazioni Android nel caso in cui non si possieda il codice sorgente. La versione originale è presente al seguente indirizzo: \newline
+\url{https://github.com/cmoaciopm/AndroidTestWithoutSource}.
+
+\subsection*{UI Automator Viewer}
+\addcontentsline{toc}{subsection}{UI Automator Viewer} 
+UI Automator Viewer è uno strumento incluso nell'sdk di Android Studio che fornisce una comoda GUI per scansionare e analizzare i componenti dell'interfaccia utente visualizzati su un dispositivo Android. È possibile utilizzare questo strumento per ispezionare la gerarchia di layout e visualizzare le proprietà dei componenti dell'interfaccia utente visibili in primo piano del dispositivo[15]. Queste informazioni consentono di creare test più dettagliati.
