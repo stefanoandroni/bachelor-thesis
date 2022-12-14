@@ -6,3 +6,5 @@
 
 **Bachelor's thesis** - Computer Science
 
+**main output file**: <a href="main.pdf"> main.pdf </a>
+
